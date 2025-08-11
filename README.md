@@ -284,6 +284,5 @@ Apache-2.0
 
 ## Changelog
 
-### Unreleased
-
-- Initial minimal release: two MCP tools (`bq.validate_sql`, `bq.dry_run_sql`), no execution features
+### 0.1.0 (2024-08-12)
+- Initial release
