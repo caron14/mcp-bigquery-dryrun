@@ -2,7 +2,7 @@
 
 import os
 from google.cloud import bigquery
-from google.cloud.exceptions import DefaultCredentialsError
+from google.auth.exceptions import DefaultCredentialsError
 
 
 def get_bigquery_client() -> bigquery.Client:
