@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "bq-dryrun": {
+      "command": "mcp-bigquery-dryrun",
+      "env": {
+        "BQ_PROJECT": "your-gcp-project",
+        "BQ_LOCATION": "asia-northeast1",
+        "SAFE_PRICE_PER_TIB": "5.0"
+      }
+    }
+  }
+}
