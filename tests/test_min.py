@@ -4,6 +4,18 @@ import json
 import os
 import pytest
 from unittest.mock import Mock, patch, MagicMock
+import sys
+
+# Ensure imports work correctly
+def test_imports_before_tests():
+    """Verify critical imports work before running other tests."""
+    try:
+        from google.auth.exceptions import DefaultCredentialsError
+        from google.cloud import bigquery
+        import mcp.server.stdio
+        from mcp_bigquery_dryrun import __version__
+    except ImportError as e:
+        pytest.fail(f"Critical import failed: {e}")
 
 # Check if BigQuery credentials are available
 HAS_CREDENTIALS = (
