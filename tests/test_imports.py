@@ -3,6 +3,7 @@
 import pytest
 import sys
 import importlib.util
+from unittest.mock import patch
 
 
 class TestImports:

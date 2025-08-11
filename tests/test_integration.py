@@ -71,11 +71,12 @@ class TestRealBigQueryIntegration:
         """Test parameterized query validation."""
         from mcp_bigquery_dryrun.server import validate_sql
         
+        # Since we only support STRING parameters, we need to cast numeric comparisons
         sql = """
         SELECT word, word_count
         FROM `bigquery-public-data.samples.shakespeare`
         WHERE corpus = @corpus_name
-        AND word_count > @min_count
+        AND word_count > CAST(@min_count AS INT64)
         """
         
         params = {
