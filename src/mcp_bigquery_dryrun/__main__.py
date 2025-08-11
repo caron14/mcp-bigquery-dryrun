@@ -2,11 +2,26 @@
 
 import asyncio
 import sys
+import argparse
+from . import __version__
 from .server import main as server_main
 
 
 def main():
     """Console script entry point."""
+    parser = argparse.ArgumentParser(
+        description="MCP BigQuery Dry-Run Server - Validate and analyze BigQuery SQL without execution"
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"mcp-bigquery-dryrun {__version__}"
+    )
+    
+    # Parse arguments
+    args = parser.parse_args()
+    
+    # Run the server
     try:
         asyncio.run(server_main())
     except KeyboardInterrupt:
