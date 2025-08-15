@@ -162,8 +162,8 @@ class TestWithoutCredentials:
         assert len(tools) == 2
         
         tool_names = [tool.name for tool in tools]
-        assert "bq.validate_sql" in tool_names
-        assert "bq.dry_run_sql" in tool_names
+        assert "bq_validate_sql" in tool_names
+        assert "bq_dry_run_sql" in tool_names
         
         # Check tool schemas
         for tool in tools:

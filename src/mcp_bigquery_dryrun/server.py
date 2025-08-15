@@ -65,7 +65,7 @@ async def handle_list_tools() -> list[types.Tool]:
     """List available MCP tools."""
     return [
         types.Tool(
-            name="bq.validate_sql",
+            name="bq_validate_sql",
             description="Validate BigQuery SQL syntax without executing the query",
             inputSchema={
                 "type": "object",
@@ -84,7 +84,7 @@ async def handle_list_tools() -> list[types.Tool]:
             }
         ),
         types.Tool(
-            name="bq.dry_run_sql",
+            name="bq_dry_run_sql",
             description="Perform a dry-run of a BigQuery SQL query to get cost estimates and metadata",
             inputSchema={
                 "type": "object",
@@ -116,7 +116,7 @@ async def handle_call_tool(
 ) -> list[types.TextContent | types.ImageContent | types.EmbeddedResource]:
     """Handle tool execution requests."""
     
-    if name == "bq.validate_sql":
+    if name == "bq_validate_sql":
         result = await validate_sql(
             sql=arguments["sql"],
             params=arguments.get("params")
@@ -126,7 +126,7 @@ async def handle_call_tool(
             text=json.dumps(result, indent=2)
         )]
     
-    elif name == "bq.dry_run_sql":
+    elif name == "bq_dry_run_sql":
         result = await dry_run_sql(
             sql=arguments["sql"],
             params=arguments.get("params"),
