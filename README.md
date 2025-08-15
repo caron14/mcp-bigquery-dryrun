@@ -1,6 +1,9 @@
 # mcp-bigquery-dryrun
 
-Minimal MCP server for BigQuery SQL validation and dry-run analysis. This server provides exactly two tools for validating and analyzing BigQuery SQL queries without executing them.
+[![PyPI](https://img.shields.io/pypi/v/mcp-bigquery-dryrun.svg)](https://pypi.org/project/mcp-bigquery-dryrun/)
+![PyPI - Downloads](https://img.shields.io/pypi/dd/mcp-bigquery-dryrun)
+
+The `mcp-bugquery-dryrun` package provides a minimal MCP server for BigQuery SQL validation and dry-run analysis. This server provides exactly two tools for validating and analyzing BigQuery SQL queries without executing them.
 
 ** IMPORTANT: This server does NOT execute queries. All operations are dry-run only. Cost estimates are approximations based on bytes processed.**
 
@@ -15,7 +18,7 @@ Minimal MCP server for BigQuery SQL validation and dry-run analysis. This server
 
 ### Prerequisites
 
-- Python 3.9+
+- Python 3.10+
 - Google Cloud SDK with BigQuery API enabled
 - Application Default Credentials configured
 
@@ -108,7 +111,7 @@ Or if installed from source:
 
 ## Tools
 
-### bq.validate_sql
+### bq_validate_sql
 
 Validate BigQuery SQL syntax without executing the query.
 
@@ -143,7 +146,7 @@ Validate BigQuery SQL syntax without executing the query.
 }
 ```
 
-### bq.dry_run_sql
+### bq_dry_run_sql
 
 Perform a dry-run to get cost estimates and metadata without executing the query.
 
@@ -199,7 +202,7 @@ Perform a dry-run to get cost estimates and metadata without executing the query
 ### Validate a Simple Query
 
 ```python
-# Tool: bq.validate_sql
+# Tool: bq_validate_sql
 {
   "sql": "SELECT 1"
 }
@@ -209,7 +212,7 @@ Perform a dry-run to get cost estimates and metadata without executing the query
 ### Validate with Parameters
 
 ```python
-# Tool: bq.validate_sql
+# Tool: bq_validate_sql
 {
   "sql": "SELECT * FROM users WHERE name = @name AND age > @age",
   "params": {
@@ -222,7 +225,7 @@ Perform a dry-run to get cost estimates and metadata without executing the query
 ### Get Cost Estimate
 
 ```python
-# Tool: bq.dry_run_sql
+# Tool: bq_dry_run_sql
 {
   "sql": "SELECT * FROM `bigquery-public-data.samples.shakespeare`",
   "pricePerTiB": 5.0
@@ -233,7 +236,7 @@ Perform a dry-run to get cost estimates and metadata without executing the query
 ### Analyze Complex Query
 
 ```python
-# Tool: bq.dry_run_sql
+# Tool: bq_dry_run_sql
 {
   "sql": """
     WITH user_stats AS (
