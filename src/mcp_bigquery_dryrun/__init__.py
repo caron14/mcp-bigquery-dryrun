@@ -1,6 +1,6 @@
 """MCP BigQuery Dry-Run Server - Minimal MCP server for BigQuery SQL validation and dry-run analysis."""
 
-__version__ = "0.2.0-dev"
+__version__ = "0.2.0"
 __author__ = "caron14"
 __email__ = "caron14@users.noreply.github.com"
 
