@@ -54,6 +54,7 @@ pip-delete-this-directory.txt
 *.log
 
 # Tentative
+ref/*
 exec-test/*
 REQUIREMENT.md
 CLAUDE.md

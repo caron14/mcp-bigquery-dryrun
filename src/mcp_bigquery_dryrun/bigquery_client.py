@@ -24,9 +24,11 @@ def get_bigquery_client() -> bigquery.Client:
     location = os.environ.get("BQ_LOCATION")
     
     try:
-        client = bigquery.Client(project=project)
+        # Create client with location if provided
         if location:
-            client.location = location
+            client = bigquery.Client(project=project, location=location)
+        else:
+            client = bigquery.Client(project=project)
         return client
     except DefaultCredentialsError as e:
         raise DefaultCredentialsError(
